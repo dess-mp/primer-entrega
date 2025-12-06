@@ -1,8 +1,27 @@
 import { ShoppingCart } from 'lucide-react';
 import ItemCount from "../ItemCount/ItemCount"; 
 import { Link } from "react-router-dom";
+import { useContext } from 'react';
+import { CartContext } from '../../context/CartContext.jsx';
+import useCount from '../hooks/useCount';
 
 function ItemDetail({ product }) {
+
+  const {addCartProduct} = useContext(CartContext);
+
+  const { count, add, less } = useCount({initialCount: 1, stock: product.stock });
+
+  const handleAddToCart = () => {
+    const productToAdd = {
+      image: product.image,
+      title: product.title,
+      id: product.id,
+      quantity: count,
+      price: product.price,
+    };
+    addCartProduct(productToAdd);
+  }
+
   return (
     <div className="card flex-direction-column m-3" style={{ width: "22rem" }}>
       <img
@@ -14,15 +33,14 @@ function ItemDetail({ product }) {
 
       <div className="card-body align-items-center text-center d-flex flex-column justify-content-center">
         <h5 className="card-title">{product.title}</h5>
-        <p className="card-text">{product.description}</p>
         <p className="card-text fs-4 fw-bold">${product.price}</p>
 
         <div className="d-flex justify-content-around w-100 mb-3">
-            <a href="#" className="btn btn-primary d-flex align-items-center">
+            <a className="btn btn-primary d-flex align-items-center" onClick={handleAddToCart}>
                 <ShoppingCart className="me-2" size={20} />
                 Añadir al carrito
             </a>
-            <ItemCount />
+            <ItemCount count={count} add={add} less={less} />
         </div>
 
 

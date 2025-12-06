@@ -1,31 +1,23 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import { getProducts } from "../../firebase/db";
 
-export function useProducts(category) {
+export const useProducts = (category) => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    const loadProducts = async () => {
-      try {
-        const response = await fetch("/jsons/products.json");
-        const data = await response.json();
+    const load = async () => {
+      const all = await getProducts();
 
-        if (category) {
-          const filtered = data.filter(
-            (item) => item.category.toLowerCase() === category.toLowerCase()
-          );
-          setProducts(filtered);
-        } else {
-          setProducts(data);
-        }
-      } catch (error) {
-        console.error("Error al cargar productos:", error);
+      if (category) {
+        const filtered = all.filter((p) => p.category === category);
+        setProducts(filtered);
+      } else {
+        setProducts(all);
       }
     };
 
-    loadProducts();
+    load();
   }, [category]);
 
   return products;
-}
-
-export default useProducts;
+};

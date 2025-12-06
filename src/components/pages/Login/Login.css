@@ -1,0 +1,17 @@
+.form-control {
+          border-radius: 8px;
+          border: 1px solid #dcdfe6;
+          padding: 10px 12px;
+          transition: border .15s ease, box-shadow .15s ease;
+        }
+
+        .form-control:focus {
+          border-color: #0016c0;
+          box-shadow: 0 0 0 6px rgba(95,110,229,0.08);
+          outline: none;
+        }
+
+        @media (max-width: 576px) {
+          .card { border-radius: 10px; }
+          .form-control { padding: 12px; }
+        }

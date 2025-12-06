@@ -1,7 +1,4 @@
-import useCount from "../hooks/useCount";
-
-function ItemCount() {
-  const { count, add, less } = useCount(0);
+function ItemCount({ count, add, less }) {
 
   return (
     <div>

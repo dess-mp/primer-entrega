@@ -3,17 +3,19 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import NavBar from "../NavBar/NavBar.jsx";
 
+import { getProducts } from "../../firebase/db.js";
+
 function ProductDetail() {
   const { id } = useParams();
-  const [product, setProduct] = useState({});
+  const [product, setProduct] = useState(null);
 
   useEffect(() => {
     const loadProduct = async () => {
       try {
-        const response = await fetch("/jsons/products.json");
-        const data = await response.json();
-        const foundProduct = data.find((item) => item.id === parseInt(id));
-        setProduct(foundProduct);
+        const allProducts = await getProducts();
+        const found = allProducts.find((item) => item.id === id);
+
+        setProduct(found);
       } catch (error) {
         console.error("Error al cargar producto:", error);
       }
@@ -21,6 +23,8 @@ function ProductDetail() {
 
     loadProduct();
   }, [id]);
+
+  if (!product) return <p className="text-center mt-5">Cargando producto...</p>;
 
   return (
     <div>
@@ -44,12 +48,14 @@ function ProductDetail() {
             <h4 className="text-primary mb-4">${product.price}</h4>
             <div>
               <button className="btn btn-primary me-2 mb-2">Comprar ahora</button>
-              <button className="btn btn-light me-2 mb-2"><ShoppingCart className="me-1" /> Agregar al carrito</button>
+              <button className="btn btn-light me-2 mb-2">
+                <ShoppingCart className="me-1" /> Agregar al carrito
+              </button>
             </div>
           </div>
-        </div>
-    </div>
 
+        </div>
+      </div>
     </div>
   );
 }
