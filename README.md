@@ -1,16 +1,51 @@
-# React + Vite
+# 🛒 Apple Kingdom — E-Commerce React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación web para la venta de dispositivos Apple nuevos y usados.  
+Incluye catálogo dinámico, carrito persistente, login y registro con Firebase, y un flujo pensado para uso real en tienda.
 
-Currently, two official plugins are available:
+## ✨ Funcionalidades principales
+- Navegación completa con **React Router**  
+- Catálogo cargado desde JSON con categorías calculadas dinámicamente  
+- **Carrito de compras** con contexto global  
+- **Autenticación** (login y registro) utilizando Firebase Auth  
+- Sistema de sesión con persistencia del usuario  
+- Interfaz adaptada a **mobile y desktop**  
+- Estilos modernos con **Bootstrap 5** y personalización propia  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🧩 Tecnologías utilizadas
+- **React + Vite**
+- **Firebase Auth**
+- **Firestore** (opcional o según implementación futura)
+- **Bootstrap 5**
+- **React Context API**
 
-## React Compiler
+## 📁 Estructura del proyecto
+src/
+├── components/
+│ ├── NavBar/
+│ ├── CartWidget/
+│ ├── ItemList/
+│ ├── ItemDetail/
+│ └── ...
+├── pages/
+│ ├── Login/
+│ ├── Register/
+│ ├── Home/
+│ └── ...
+├── context/
+│ ├── CartContext.jsx
+│ └── UserContext.jsx
+├── firebase/
+│ └── config.js
+└── main.jsx
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
+## ▶️ Scripts disponibles
+- `npm run dev` — Ejecuta el entorno de desarrollo  
+- `npm run build` — Genera el build de producción  
+- `npm run preview` — Previsualiza el build generado  
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Próximos pasos
+- Panel administrativo  
+- Gestión de stock  
+- Dashboard de ventas  
