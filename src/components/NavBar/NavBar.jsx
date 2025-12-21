@@ -1,9 +1,8 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import CartWidget from "../CartWidget/CartWidget.jsx";
 import { CartContext } from "../../context/CartContext.jsx";
 import { useEffect, useState, useContext } from "react";
 import { getAuth, signOut } from "firebase/auth";
-import { useNavigate } from "react-router";
 import { UserContext } from "../../context/UserContext.jsx";
 
 function NavBar() {

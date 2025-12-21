@@ -9,7 +9,7 @@ import CartProvider from './context/CartContext.jsx';
 import RegisterPage from './components/pages/Register/Register.jsx';
 import Login from './components/pages/Login/Login.jsx';
 import UserProvider from './context/UserContext.jsx';
-import Checkout from "./components/pages/CheckOut.jsx";
+import Checkout from "./components/pages/Checkout.jsx";
 
 function App() {
 
