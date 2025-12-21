@@ -9,6 +9,7 @@ import CartProvider from './context/CartContext.jsx';
 import RegisterPage from './components/pages/Register/Register.jsx';
 import Login from './components/pages/Login/Login.jsx';
 import UserProvider from './context/UserContext.jsx';
+import Checkout from "./components/pages/CheckOut.jsx";
 
 function App() {
 
@@ -23,8 +24,9 @@ function App() {
               <Route path="/product-detail/:id" element={<ProductDetail />} />
               <Route path="/cart-detail" element={<CartDetail />} />
               <Route path="/contact" element={<Contact />} />
-              <Route path="/register" element={<RegisterPage    />} />
+              <Route path="/register" element={<RegisterPage />} />
               <Route path="/login" element={<Login />} />
+              <Route path="/checkout" element={<Checkout />} />
             </Routes>
         </CartProvider>
       </BrowserRouter>

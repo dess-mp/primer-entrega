@@ -20,6 +20,8 @@ function ItemDetail({ product }) {
       price: product.price,
     };
     addCartProduct(productToAdd);
+
+    console.log("Producto agregado al carrito:", productToAdd.id);
   }
 
   return (
